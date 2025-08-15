@@ -240,7 +240,6 @@ The main agent automatically:
 - **Generic Agent**: Works with any email service URL
 - **LLM Analysis**: Uses AI to understand and navigate UIs
 - **API Interface**: Full REST API for integration
-- **Screenshot Analysis**: Visual debugging for failures
 
 ### **Best Practices**
 
@@ -248,13 +247,8 @@ The main agent automatically:
 2. **Use for presentations**: Demo mode shows all capabilities without authentication issues
 3. **Browser automation**: Shows DOM interaction and provider abstraction concepts
 4. **Check logs**: Console output shows detailed step-by-step progress
-5. **Test components**: Run files separately for debugging
 
 ###  **Tips**
 
 - **Demo mode** demonstrates the complete architecture perfectly
 - **Browser automation** shows cross-platform UI interaction capabilities
-- **Provider abstraction** makes it easy to add new email services
-- **For production deployment** - extend with additional email service providers
-
----
