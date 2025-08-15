@@ -4,10 +4,6 @@
 
 A sophisticated automation system that uses natural language processing and browser automation to send emails across different web-based email services (Gmail, Outlook, and more). Built with Python, Playwright, and FastAPI.
 
-![Demo](https://img.shields.io/badge/Demo-Ready-brightgreen) ![Python](https://img.shields.io/badge/Python-3.8+-blue) ![Playwright](https://img.shields.io/badge/Playwright-Automation-orange) ![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-green)
-
----
-
 ## Table of Contents
 
 - [Overview](#-overview)
@@ -17,7 +13,6 @@ A sophisticated automation system that uses natural language processing and brow
 - [Project Structure](#-project-structure)
 - [Demo Mode](#-demo-mode)
 - [API Documentation](#-api-documentation)
-- [ Troubleshooting](#-troubleshooting)
 
 ---
 
@@ -39,57 +34,12 @@ This system was built to address a technical challenge with the following requir
  **Browser automation with DOM interaction**  
  **Support multiple providers with different DOM structures**  
  **Abstract provider-specific logic behind unified interface**  
+ **Step-by-step logging**
+ **Generic UI Agent for any service**
+ **CLI interface**
+ **FastAPI REST endpoint**
 
-**Plus stretch goals implemented:**  
-Step-by-step logging  
-Generic UI Agent for any service  
-CLI interface  
-FastAPI REST endpoint  
-
----
-
-## Evaluation Criteria Compliance
-
-**ALL 6 EVALUATION CRITERIA ARE FULLY MET (90% Score):**
-
-### 1. Agent Architecture and Generalization Ability (9/10)
--  **Modular Provider System**: Clean `providers/gmail.py`, `providers/outlook.py`
--  **Unified Interface**: All providers implement `send_email(to, subject, body)`
--  **Cross-Platform**: Works with Gmail, Outlook, any web email service
--  **Easy Extension**: Add new providers by implementing the interface
-
-### 2. DOM Parsing and Automation Reliability (9/10)
-- **4-Strategy Field Detection**: `enhanced_dom_handler.py` with multiple fallbacks
-- **Robust Selector Systems**: Service-specific → Semantic → AI-powered → Visual
-- **Dynamic DOM Adaptation**: Handles UI changes intelligently
-- **Retry Logic**: Multiple attempts with different detection methods
-
-###  3. Use of LLM for UI Intent Inference (8/10)
-- **Natural Language Parsing**: `llm_parser.py` extracts email components
-- **Intent Inference**: Converts instructions to structured data
-- **AI Field Matching**: Semantic element discovery in DOM handler
-- **Context Understanding**: Smart recipient/subject/body extraction
-
-### 4. Abstraction and Modularity of Per-Provider Logic (10/10)
--  **Perfect Separation**: Each provider is completely independent
--  **Consistent Interface**: Same `send_email()` method across all providers
--  **Zero Dependencies**: Providers don't depend on each other
--  **Clean Architecture**: Parsing, logging, automation are modular
-
-### 5. Logging and Recoverability (9/10)
--  **Comprehensive Logging**: Every step tracked with clear indicators
--  **Error Recovery**: Graceful fallbacks on all failures
--  **Debug Information**: Shows selectors tried, methods attempted
--  **Mock Fallback**: Always provides working demonstration
-
-### 6. Thoughtfulness in Handling Edge Cases (9/10)
--  **Authentication Detection**: Recognizes login requirements gracefully
--  **Field Not Found**: 4-strategy detection with intelligent fallbacks
--  **Network Issues**: Retry logic with exponential backoff
--  **Browser Failures**: Comprehensive error handling and cleanup
--  **UI Changes**: AI-powered adaptation to dynamic interfaces
-
----
+**AI Field Matching**: Semantic element discovery in DOM handler
 
 ## Features
 
@@ -180,11 +130,11 @@ python demo.py
 python demo.py "Send email to john@example.com about the project deadline"
 ```
 **Perfect for:**
-- ✅ Presentations and demonstrations
-- ✅ Understanding the system workflow
-- ✅ Testing without browser dependencies
-- ✅ Safe execution without actual email composition
-- ✅ **NO BROWSER WINDOWS** - console output only
+-  Presentations and demonstrations
+-  Understanding the system workflow
+-  Testing without browser dependencies
+-  Safe execution without actual email composition
+-  **NO BROWSER WINDOWS** - console output only
 
 ### **2. Browser Automation Mode (Real Automation)**
 ```bash
@@ -195,7 +145,7 @@ python agent.py "Send email to john@example.com about the project deadline"
 python agent.py
 ```
 
-**📧 How it works:**
+** How it works:**
 - **SENDER**: Uses the Gmail/Outlook account you're logged into in the browser
 - **RECEIVER**: Extracts email address from your instruction (e.g., "john@example.com")
 - **SUBJECT & BODY**: Generated automatically from your instruction content
@@ -220,27 +170,27 @@ agent = GenericUIAgent()
 await agent.execute_email_task("https://mail.google.com", "send email to alice@company.com about meeting")
 ```
 
-## 🛡️ Safety Features
+##  Safety Features
 
 - **Email sending disabled by default** for demo safety
 - **Mock fallbacks** when automation fails
 - **Comprehensive logging** for transparency
 - **Error recovery** with graceful degradation
 
-## 🔧 Architecture Highlights
+## Architecture Highlights
 
 - **Modular Design**: Easy to extend with new providers
 - **Provider Abstraction**: Unified interface across different email services
 - **LLM Integration**: Intelligent element discovery and field matching
 - **Production Ready**: Robust error handling and logging
 
-## 📋 Example Instructions
+##  Example Instructions
 
 - `"Send email to alice@company.com about the quarterly review meeting"`
 - `"Email john.doe@startup.com regarding the project deadline extension"`
 - `"Send a message to team@example.com saying 'Hello from automation'"`
 
-### **📧 Email Flow Explanation:**
+### ** Email Flow Explanation:**
 
 **Sender (FROM)**: The currently logged-in user in Gmail/Outlook browser
 **Receiver (TO)**: Extracted from your natural language instruction
@@ -249,12 +199,12 @@ await agent.execute_email_task("https://mail.google.com", "send email to alice@c
 ```bash
 python agent.py "Send email to alice@company.com about project update"
 ```
-- **📤 FROM**: your-account@gmail.com (whoever is logged into Gmail)
-- **📥 TO**: alice@company.com (extracted from instruction)  
-- **📝 SUBJECT**: "Project Update" (extracted from instruction)
-- **📄 BODY**: Auto-generated message about the project update
+- ** FROM**: your-account@gmail.com (whoever is logged into Gmail)
+- ** TO**: alice@company.com (extracted from instruction)  
+- ** SUBJECT**: "Project Update" (extracted from instruction)
+- ** BODY**: Auto-generated message about the project update
 
-## 🎪 Demo
+##  Demo
 
 ### **For Presentations: Use Demo Mode**
 ```bash
@@ -270,7 +220,7 @@ python demo.py
 
 **Example demo output:**
 ```
-🚀 DEMO 1/3
+ DEMO 1/3
 [STEP] PROCESSING INSTRUCTION: Send email to alice@company.com about quarterly review
 [STEP] ✓ Parsed - To: alice@company.com
 [STEP] ✓ Parsed - Subject: Quarterly Review  
@@ -289,7 +239,7 @@ The main agent automatically:
 4. **Fills** recipient, subject, and body fields
 5. **Shows** the composed email (sending disabled for safety)
 
-## 🔮 Advanced Features
+## Advanced Features
 
 - **Generic Agent**: Works with any email service URL
 - **LLM Analysis**: Uses AI to understand and navigate UIs
@@ -298,38 +248,6 @@ The main agent automatically:
 
 ---
 
-## 🚨 Troubleshooting
-
-### ❓ **Common Issues & Solutions**
-
-#### **Issue**: "Browser automation fails with Gmail/Outlook"
-```
-Error: "This browser or app may not be secure" 
-Error: Login blocked or CAPTCHA appears
-```
-**✅ Solution**: This is expected behavior - use demo mode for reliable demonstrations
-```bash
-python demo.py  # Safe demonstration mode
-```
-**📝 Explanation**: Modern email services block automated browsers for security.
-
-#### **Issue**: "Browser installation fails"
-```bash
-# Solution: Install browsers
-playwright install chromium
-```
-
-#### **Issue**: "Port 8088 already in use" (API Server)
-```bash
-# Solution: Kill existing process or use different port
-netstat -ano | findstr :8088  # Windows
-```
-
-#### **Issue**: "Import errors or module not found"
-```bash
-# Solution: Install dependencies
-pip install playwright fastapi uvicorn
-```
 
 ### 🎯 **Best Practices**
 
