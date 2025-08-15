@@ -11,10 +11,6 @@ A sophisticated automation system that uses natural language processing and brow
 - [Quick Start](#-quick-start)
 - [Usage Examples](#-usage-examples)
 - [Project Structure](#-project-structure)
-- [Demo Mode](#-demo-mode)
-- [API Documentation](#-api-documentation)
-
----
 
 ## Overview
 
@@ -246,10 +242,7 @@ The main agent automatically:
 - **API Interface**: Full REST API for integration
 - **Screenshot Analysis**: Visual debugging for failures
 
----
-
-
-### 🎯 **Best Practices**
+### **Best Practices**
 
 1. **Start with demo mode**: `python demo.py` - perfect for understanding the system
 2. **Use for presentations**: Demo mode shows all capabilities without authentication issues
@@ -257,7 +250,7 @@ The main agent automatically:
 4. **Check logs**: Console output shows detailed step-by-step progress
 5. **Test components**: Run files separately for debugging
 
-### 💡 **Pro Tips**
+###  **Tips**
 
 - **Demo mode** demonstrates the complete architecture perfectly
 - **Browser automation** shows cross-platform UI interaction capabilities
