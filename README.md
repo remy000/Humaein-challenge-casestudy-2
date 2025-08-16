@@ -1,4 +1,4 @@
-# Cross-Platform Action Agent
+# Case Study #2: Alternate General Challenge: Cross-Platform Action Agent Using LLM + Browser Automation
 
 > **AI-Powered Email Automation Across Multiple Platforms**
 
